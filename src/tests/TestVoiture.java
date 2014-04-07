@@ -13,7 +13,7 @@ public class TestVoiture {
 	
 	@Test
 	public void testGetX(){
-		Voiture voiture = new Voiture(20) ;
+		Voiture voiture = new Voiture(20,20) ;
 		
 		int xVoiture = voiture.getCoordXEnMetres() ;
 		
@@ -22,15 +22,31 @@ public class TestVoiture {
 	}
 	
 	@Test
-	public void testVitesseX() {
-		Voiture voiture = new Voiture(20,150);
+	public void testGetY(){
+		Voiture voiture = new Voiture(20,20) ;
+		
+		int yVoiture = voiture.getCoordYEnMetres() ;
+		
+		assertEquals(20, yVoiture);
+		
+	}
+	
+	@Test
+	public void testVitesse() {
+		Voiture voiture = new Voiture(20,20,150);
 		
 		assertEquals(150,voiture.getVitesseMetreParSecondes());
 	}
 	
 	@Test
+	public void testAngle(){
+		Voiture voiture = new Voiture(20,20,150);
+		assertEquals(90,voiture.getAngleEnDegre());
+	}
+	
+	@Test
 	public void testMiseAjourPositionEnFonctionVitesse() {
-		Voiture voiture = new Voiture(20,100);
+		Voiture voiture = new Voiture(20,20,100);
 		voiture.avancerEnFonctionDeLaVitesse();
 		assertEquals(120, voiture.getCoordXEnMetres());
 	}
