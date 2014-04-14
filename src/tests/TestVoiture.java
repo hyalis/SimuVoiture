@@ -66,6 +66,15 @@ public class TestVoiture {
 		assertEquals(100, voiture.getCoordYEnMetres());
 		assertEquals(50, voiture.getCoordXEnMetres());
 	}
+	
+	@Test
+	public void testAvancerEnFonctionDeLaVitesseEtDeLAngle(){
+		Voiture voiture = new Voiture(20,50,100);
+		voiture.setAngleEnDegre(45);
+		voiture.avancerEnFonctionDeLaVitesseEtDeLAngle();
+		assertEquals(90, voiture.getCoordXEnMetres());
+		assertEquals(120, voiture.getCoordYEnMetres());
+	}
 
 	
 }
