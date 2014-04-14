@@ -50,6 +50,22 @@ public class TestVoiture {
 		voiture.avancerEnFonctionDeLaVitesse();
 		assertEquals(120, voiture.getCoordXEnMetres());
 	}
+	
+	@Test
+	public void testAvancerEnFonctionDeLaVitesseDansLeMurAvecX() {
+		Voiture voiture = new Voiture(901,30,100);
+		voiture.avancerEnFonctionDeLaVitesse();
+		assertEquals(130, voiture.getCoordYEnMetres());
+		assertEquals(0, voiture.getCoordXEnMetres());
+	}
+	
+	@Test
+	public void testAvancerEnFonctionDeLaVitesseDansLeMurAvecY() {
+		Voiture voiture = new Voiture(50,999,100);
+		voiture.avancerEnFonctionDeLaVitesse();
+		assertEquals(0, voiture.getCoordYEnMetres());
+		assertEquals(150, voiture.getCoordXEnMetres());
+	}
 
 	
 }

@@ -8,8 +8,6 @@ import domaineConduite.Voiture;
 
 public class VueVoiture implements Observer {
 
-	
-	
 	private Voiture voiture;
 
 	private DessinVoiture ihm;

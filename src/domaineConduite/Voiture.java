@@ -38,8 +38,19 @@ public class Voiture extends Observable {
 	}
 
 	public void avancerEnFonctionDeLaVitesse() {
-		coordXEnMetres += vitesseMetreParSecondes;
-		coordYEnMetres += vitesseMetreParSecondes;
+		if(coordXEnMetres+vitesseMetreParSecondes > largeurDomaine)
+		{
+			coordXEnMetres = 0;
+		} else {
+			coordXEnMetres += vitesseMetreParSecondes;
+		}
+		
+		if(coordYEnMetres+vitesseMetreParSecondes > largeurDomaine)
+		{
+			coordYEnMetres = 0;
+		} else {
+			coordYEnMetres += vitesseMetreParSecondes;
+		}
 		notificationObservateurs();
 	}
 
