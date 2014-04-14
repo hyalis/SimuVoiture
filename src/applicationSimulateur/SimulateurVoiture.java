@@ -22,7 +22,7 @@ public class SimulateurVoiture {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				voiture.avancerEnFonctionDeLaVitesse();
+				voiture.avancerEnFonctionDeLaVitesseEtDeLAngle();
 				
 			}
 		});

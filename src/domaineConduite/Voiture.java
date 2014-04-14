@@ -22,7 +22,7 @@ public class Voiture extends Observable {
 		this.coordXEnMetres = coordXEnMetres;
 		this.coordYEnMetres = coordYEnMetres;
 		this.vitesseMetreParSecondes = vitesseMetreParSecondes;
-		this.angleEnDegre = 90;
+		this.angleEnDegre = 45;
 	}
 
 	public int getCoordXEnMetres() {
@@ -37,21 +37,34 @@ public class Voiture extends Observable {
 		return vitesseMetreParSecondes;
 	}
 
-	public void avancerEnFonctionDeLaVitesse() {
+	public void avancerEnFonctionDeLaVitesseEtDeLAngle() {
+		double angleEnRadian = Math.toRadians(angleEnDegre);
+		
+		double coefficientDirecteurSurX = Math.cos(angleEnRadian);
+		double coefficientDirecteurSurY = Math.sin(angleEnRadian);
+		
 		if(coordXEnMetres+vitesseMetreParSecondes > largeurDomaine)
 		{
 			coordXEnMetres = 0;
-		} else {
-			coordXEnMetres += vitesseMetreParSecondes;
+		} else if (coordXEnMetres+vitesseMetreParSecondes < 0){
+			coordXEnMetres = largeurDomaine;
 		}
 		
 		if(coordYEnMetres+vitesseMetreParSecondes > largeurDomaine)
 		{
 			coordYEnMetres = 0;
-		} else {
-			coordYEnMetres += vitesseMetreParSecondes;
+		} else if (coordYEnMetres+vitesseMetreParSecondes < 0) {
+			coordYEnMetres = largeurDomaine;
 		}
+
+		coordXEnMetres += coefficientDirecteurSurX*vitesseMetreParSecondes;
+		coordYEnMetres += coefficientDirecteurSurY*vitesseMetreParSecondes;
+		
 		notificationObservateurs();
+	}
+
+	public void setAngleEnDegre(int angleEnDegre) {
+		this.angleEnDegre = angleEnDegre;
 	}
 
 	private void notificationObservateurs() {
