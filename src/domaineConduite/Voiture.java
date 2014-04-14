@@ -22,7 +22,7 @@ public class Voiture extends Observable {
 		this.coordXEnMetres = coordXEnMetres;
 		this.coordYEnMetres = coordYEnMetres;
 		this.vitesseMetreParSecondes = vitesseMetreParSecondes;
-		this.angleEnDegre = 45;
+		this.angleEnDegre = 90;
 	}
 
 	public int getCoordXEnMetres() {

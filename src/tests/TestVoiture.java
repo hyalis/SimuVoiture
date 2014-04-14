@@ -48,7 +48,7 @@ public class TestVoiture {
 	public void testMiseAjourPositionEnFonctionVitesse() {
 		Voiture voiture = new Voiture(20,20,100);
 		voiture.avancerEnFonctionDeLaVitesseEtDeLAngle();
-		assertEquals(120, voiture.getCoordXEnMetres());
+		assertEquals(20, voiture.getCoordXEnMetres());
 	}
 	
 	@Test
@@ -63,8 +63,8 @@ public class TestVoiture {
 	public void testAvancerEnFonctionDeLaVitesseDansLeMurAvecY() {
 		Voiture voiture = new Voiture(50,999,100);
 		voiture.avancerEnFonctionDeLaVitesseEtDeLAngle();
-		assertEquals(0, voiture.getCoordYEnMetres());
-		assertEquals(150, voiture.getCoordXEnMetres());
+		assertEquals(100, voiture.getCoordYEnMetres());
+		assertEquals(50, voiture.getCoordXEnMetres());
 	}
 
 	

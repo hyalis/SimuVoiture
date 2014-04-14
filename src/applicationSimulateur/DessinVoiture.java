@@ -6,8 +6,13 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 
+@SuppressWarnings("serial")
 public class DessinVoiture extends JFrame implements KeyListener{
-
+	final int TOUCHE_GAUCHE = 37;
+	final int TOUCHE_HAUT = 38;
+	final int TOUCHE_DROITE = 39;
+	final int TOUCHE_BAS = 40;
+	
 	public static final int TailleFenetreEnPixels = 500;
 	
 	private int xPixelVoiture;
@@ -22,7 +27,7 @@ public class DessinVoiture extends JFrame implements KeyListener{
 		this.setVisible(true);
 		this.xPixelVoiture = 0;
 		this.yPixelVoiture = 0;
-		this.angleEnDegre = 0;
+		this.angleEnDegre = 90;
 		this.addKeyListener(this);
 	}
 
@@ -47,14 +52,15 @@ public class DessinVoiture extends JFrame implements KeyListener{
 	}
 	
 	public void keyPressed(KeyEvent event) {
-		switch(event.getKeyCode()){
-			case 37: this.angleEnDegre = 180;
+		int codeDeLaTouche = event.getKeyCode();
+		switch(codeDeLaTouche){
+			case TOUCHE_GAUCHE: this.angleEnDegre = 180;
 				break;
-			case 38: this.angleEnDegre = 270;
+			case TOUCHE_HAUT: this.angleEnDegre = 270;
 				break;
-			case 39: this.angleEnDegre = 0;
+			case TOUCHE_DROITE: this.angleEnDegre = 0;
 				break;
-			case 40: this.angleEnDegre = 90;
+			case TOUCHE_BAS: this.angleEnDegre = 90;
 				break;
 		}
 	}
