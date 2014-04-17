@@ -12,9 +12,9 @@ public class DessinVoiture extends JFrame implements KeyListener{
 	final int TOUCHE_HAUT = 38;
 	final int TOUCHE_DROITE = 39;
 	final int TOUCHE_BAS = 40;
-	
+
 	public static final int TailleFenetreEnPixels = 500;
-	
+
 	private int xPixelVoiture;
 	private int yPixelVoiture;
 	private int angleEnDegre;
@@ -31,7 +31,6 @@ public class DessinVoiture extends JFrame implements KeyListener{
 		this.addKeyListener(this);
 	}
 
-	@Override
 	public void paint(Graphics graphics) {
 		super.paint(graphics);
 		dessinerVoiture(this.xPixelVoiture, this.yPixelVoiture, graphics);
@@ -50,7 +49,7 @@ public class DessinVoiture extends JFrame implements KeyListener{
 	public void setXPixelVoiture(int xPixelVoiture) {
 		this.xPixelVoiture = xPixelVoiture;
 	}
-	
+
 	public void keyPressed(KeyEvent event) {
 		int codeDeLaTouche = event.getKeyCode();
 		switch(codeDeLaTouche){
@@ -69,14 +68,9 @@ public class DessinVoiture extends JFrame implements KeyListener{
 		return angleEnDegre;
 	}
 
-	@Override
 	public void keyReleased(KeyEvent arg0) {
-		//Rien à faire
 	}
 
-	@Override
 	public void keyTyped(KeyEvent arg0) {
-		//Rien à faire
 	}
-
 }

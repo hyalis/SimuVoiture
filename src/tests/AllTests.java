@@ -7,7 +7,7 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
   TestVoiture.class,
   TestVueVoiture.class,
-
+  TestDessinVoiture.class,
 })
 
 
@@ -15,4 +15,3 @@ public class AllTests {
   // the class remains empty,
   // used only as a holder for the above annotations
 }
-

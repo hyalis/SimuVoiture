@@ -7,10 +7,10 @@ import domaineConduite.Voiture;
 
 
 public class VueVoiture implements Observer {
-
+	
 	private Voiture voiture;
 
-	private DessinVoiture ihm;
+	private DessinVoiture dessinDeLaVoiture;
 
 	public VueVoiture() {
 		this.voiture = null;
@@ -24,7 +24,7 @@ public class VueVoiture implements Observer {
 	public VueVoiture(Voiture voiture, DessinVoiture ihm) {
 		this.voiture = voiture;
 		this.voiture.addObserver(this);
-		this.ihm = ihm;
+		this.dessinDeLaVoiture = ihm;
 	}
 
 	public int transformerMetrePixel(int coordonneeXEnMetre) {
@@ -36,20 +36,19 @@ public class VueVoiture implements Observer {
 		return coordonneeXEnPixels;
 	}
 
-	@Override
 	public void update(Observable arg0, Object arg1) {
 
 		int xVoiture = this.voiture.getCoordXEnMetres();
 		int xPixelVoiture = this.transformerMetrePixel(xVoiture);
-		ihm.setXPixelVoiture(xPixelVoiture);
+		dessinDeLaVoiture.setXPixelVoiture(xPixelVoiture);
 		
 		int yVoiture = this.voiture.getCoordYEnMetres();
 		int yPixelVoiture = this.transformerMetrePixel(yVoiture);
-		ihm.setyPixelVoiture(yPixelVoiture);
+		dessinDeLaVoiture.setyPixelVoiture(yPixelVoiture);
 		
-		this.voiture.setAngleEnDegre(ihm.getAngleEnDegre());
+		this.voiture.setAngleEnDegre(dessinDeLaVoiture.getAngleEnDegre());
 		
-		ihm.repaint();
+		dessinDeLaVoiture.repaint();
 
 	}
 

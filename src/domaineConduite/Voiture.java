@@ -39,27 +39,27 @@ public class Voiture extends Observable {
 
 	public void avancerEnFonctionDeLaVitesseEtDeLAngle() {
 		double angleEnRadian = Math.toRadians(angleEnDegre);
-		
+
 		double coefficientDirecteurSurX = Math.cos(angleEnRadian);
 		double coefficientDirecteurSurY = Math.sin(angleEnRadian);
-		
-		if(coordXEnMetres+vitesseMetreParSecondes > largeurDomaine)
-		{
-			coordXEnMetres = 0;
-		} else if (coordXEnMetres+vitesseMetreParSecondes < 0){
-			coordXEnMetres = largeurDomaine;
-		}
-		
-		if(coordYEnMetres+vitesseMetreParSecondes > largeurDomaine)
-		{
-			coordYEnMetres = 0;
-		} else if (coordYEnMetres+vitesseMetreParSecondes < 0) {
-			coordYEnMetres = largeurDomaine;
-		}
 
 		coordXEnMetres += coefficientDirecteurSurX*vitesseMetreParSecondes;
 		coordYEnMetres += coefficientDirecteurSurY*vitesseMetreParSecondes;
-		
+
+		if(coordXEnMetres > largeurDomaine)
+		{
+			coordXEnMetres = 0;
+		} else if (coordXEnMetres < 0){
+			coordXEnMetres = largeurDomaine;
+		}
+
+		if(coordYEnMetres > largeurDomaine)
+		{
+			coordYEnMetres = 0;
+		} else if (coordYEnMetres < 0) {
+			coordYEnMetres = largeurDomaine;
+		}
+
 		notificationObservateurs();
 	}
 

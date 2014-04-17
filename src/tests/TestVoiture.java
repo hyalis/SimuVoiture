@@ -2,7 +2,6 @@ package tests;
 
 import static org.junit.Assert.*;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import domaineConduite.Voiture;
@@ -52,18 +51,38 @@ public class TestVoiture {
 	}
 	
 	@Test
-	public void testAvancerEnFonctionDeLaVitesseDansLeMurAvecX() {
+	public void testAvancerEnFonctionDeLaVitesseDansLeMurADroiteAvecX() {
 		Voiture voiture = new Voiture(901,30,100);
+		voiture.setAngleEnDegre(0);
 		voiture.avancerEnFonctionDeLaVitesseEtDeLAngle();
-		assertEquals(130, voiture.getCoordYEnMetres());
+		assertEquals(30, voiture.getCoordYEnMetres());
 		assertEquals(0, voiture.getCoordXEnMetres());
 	}
 	
 	@Test
-	public void testAvancerEnFonctionDeLaVitesseDansLeMurAvecY() {
-		Voiture voiture = new Voiture(50,999,100);
+	public void testAvancerEnFonctionDeLaVitesseDansLeMurAGaucheAvecX() {
+		Voiture voiture = new Voiture(0,50,100);
+		voiture.setAngleEnDegre(180);
 		voiture.avancerEnFonctionDeLaVitesseEtDeLAngle();
-		assertEquals(100, voiture.getCoordYEnMetres());
+		assertEquals(50, voiture.getCoordYEnMetres());
+		assertEquals(1000, voiture.getCoordXEnMetres());
+	}
+	
+	@Test
+	public void testAvancerEnFonctionDeLaVitesseDansLeMurEnBasAvecY() {
+		Voiture voiture = new Voiture(50,999,100);
+		voiture.setAngleEnDegre(90);
+		voiture.avancerEnFonctionDeLaVitesseEtDeLAngle();
+		assertEquals(0, voiture.getCoordYEnMetres());
+		assertEquals(50, voiture.getCoordXEnMetres());
+	}
+	
+	@Test
+	public void testAvancerEnFonctionDeLaVitesseDansLeMurEnHautAvecY() {
+		Voiture voiture = new Voiture(50,1,100);
+		voiture.setAngleEnDegre(-90);
+		voiture.avancerEnFonctionDeLaVitesseEtDeLAngle();
+		assertEquals(1000, voiture.getCoordYEnMetres());
 		assertEquals(50, voiture.getCoordXEnMetres());
 	}
 	
